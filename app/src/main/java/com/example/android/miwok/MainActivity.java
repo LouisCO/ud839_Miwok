@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent phrasesIntent=new Intent(MainActivity.this, PhrasesActivity.class);
-                
+
                 startActivity(phrasesIntent);
             }
         });
