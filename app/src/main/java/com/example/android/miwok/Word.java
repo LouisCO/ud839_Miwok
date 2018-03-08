@@ -17,21 +17,41 @@ package com.example.android.miwok;
 
 
 class Word {
+    private static final int NO_IMAGE_PROVIDED=-1;
     // Default translation for the word
     private String mDefaultTranslation;
-
     // Miwok translation for the word
     private String mMiwokTranslation;
+    // Image related to the word
+    private int mImageResourceId=NO_IMAGE_PROVIDED;
+    private int mAudioFile;
 
     /**
      * Create a new Word object.
      *
      * @param defaultTranslation is the word in the user's language
      * @param miwokTranslation   is the word in Miwok
+     * @param audioFile          is the
      */
-    Word(String defaultTranslation, String miwokTranslation) {
+    Word(String defaultTranslation, String miwokTranslation, int audioFile) {
         mDefaultTranslation=defaultTranslation;
         mMiwokTranslation=miwokTranslation;
+        mAudioFile=audioFile;
+    }
+
+    /**
+     * Create a new Word object.
+     *
+     * @param defaultTranslation is the word in the user's language
+     * @param miwokTranslation   is the word in Miwok
+     * @param imageResourceId    is the associated image
+     * @param audioFile          is the associated audio file
+     */
+    Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioFile) {
+        mDefaultTranslation=defaultTranslation;
+        mMiwokTranslation=miwokTranslation;
+        mImageResourceId=imageResourceId;
+        mAudioFile=audioFile;
     }
 
     // Get the default translation of the word.
@@ -43,4 +63,23 @@ class Word {
     String getMiwokTranslation() {
         return mMiwokTranslation;
     }
+
+    // Get the image
+    int getImageResourceId() {
+        return mImageResourceId;
+    }
+
+    // Get the pronunciation
+    int getAudioFile() {
+        return mAudioFile;
+    }
+
+    /**
+     * Returns whether or not there is an image associated
+     */
+    boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
 }
+
